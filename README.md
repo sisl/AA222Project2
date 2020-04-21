@@ -1,4 +1,4 @@
-# Project1 Starter Code
+# Project2 Starter Code
 
 ## Code overview
 - `language.txt` is a text file specifying the programming language in which the assignment is completed. *This is the very first thing you should edit*
