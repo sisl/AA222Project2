@@ -281,7 +281,12 @@ def test_optimize(optimize):
             xb = optimize(p.f, p.g, p.c, x0, p.n, p.count, p.prob)
             if p.count() > p.n:
                 any_count_exceeded = True
+                break
             xvals_opt.append(xb)
+
+        if any_count_exceeded:
+            print('Failed %s. Count exceeded.'%p.prob)
+            continue
 
         # test random
         print('Testing random search...')
@@ -292,10 +297,6 @@ def test_optimize(optimize):
             x0 = p.x0()
             xb = optimize_random(p.f, p.g, p.c, x0, p.n, p.count, p.prob)
             xvals_random.append(xb)
-
-        if any_count_exceeded:
-            print('Failed %s. Count exceeded.'%p.prob)
-            continue
 
         # compare xvals
         better = []
