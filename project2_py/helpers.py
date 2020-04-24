@@ -2,7 +2,7 @@
 # File: helpers.py
 #
 
-# this file defines the optimization problems, random search, and test
+# this file defines the optimization problems and test
 
 from tqdm import tqdm
 import numpy as np
