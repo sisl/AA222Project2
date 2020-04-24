@@ -103,18 +103,20 @@ for each trial and each trial's score.
     - (`scores`, `nevals`)
 """
 function main(probname::String, repeat::Int, opt_func, seed = 42)
+    prob = PROBS[probname]
+    f, g, c, x0, n = prob.f, prob.g, prob.c, prob.x0, prob.n
+
     scores = zeros(repeat)
     nevals = zeros(Int, repeat)
-
-    prob = PROBS[probname]
+    optima = Vector{typeof(x0())}(undef, repeat)
 
     # Repeat the optimization with a different initialization
     for i in 1:repeat
         empty!(COUNTERS) # fresh eval-count each time
         Random.seed!(seed + i)
-        x_star_hat = opt_func(prob.f, prob.g, prob.c, prob.x0(), prob.n, probname)
-        nevals[i], scores[i] = get_score(prob.f, prob.g, prob.c, x_star_hat, prob.n)
+        optima[i] = opt_func(f, g, c, x0(), n, probname)
+        nevals[i], scores[i] = get_score(f, g, c, optima[i], n)
     end
 
-    return scores, nevals
+    return scores, nevals, optima
 end
