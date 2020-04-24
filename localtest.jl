@@ -50,6 +50,7 @@ end
 # We take normally distributed random steps away from x0 and
 # pick the best one. If we're infeasible, we at least try to minimize the penalty
 function autograder_random_search(f, c, x0, n)
+    empty!(COUNTERS)
     y_best = Inf
     x_best = x0
     p_best = Inf
@@ -65,6 +66,7 @@ function autograder_random_search(f, c, x0, n)
         px = p_max(x)
 
         if px <= 0
+            p_best = min(p_best, px)
             y = f(x)
             if y < y_best
                 y_best = y
