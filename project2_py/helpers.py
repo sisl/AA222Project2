@@ -49,7 +49,6 @@ class OptimizationProblem:
             f (float): evaluation
         '''
         self._ctr += 1
-        assert self._ctr <= self.n, 'Number of allowed function calls exceeded.'
 
         return self._wrapped_f(x)
     
@@ -64,7 +63,6 @@ class OptimizationProblem:
             jac (np.array): jacobian of f wrt x
         '''
         self._ctr += 2
-        assert self._ctr <= self.n, 'Number of allowed function calls exceeded.'
 
         return self._wrapped_g(x)
 
@@ -98,7 +96,6 @@ class ConstrainedOptimizationProblem(OptimizationProblem):
             c (np.array): (cdim,) evaluation of constraints
         '''
         self._ctr += 1
-        assert self._ctr <= self.n, 'Number of allowed function calls exceeded.'
 
         return self._wrapped_c(x)
 
@@ -276,12 +273,20 @@ def test_optimize(optimize):
         # test optimize
         print('Testing optimize...')
         xvals_opt = []
+        any_count_exceeded = False
         for seed in tqdm(range(500)):
             p = test()
             np.random.seed(seed)
             x0 = p.x0()
             xb = optimize(p.f, p.g, p.c, x0, p.n, p.count, p.prob)
+            if p.count() > p.n:
+                any_count_exceeded = True
+                break
             xvals_opt.append(xb)
+
+        if any_count_exceeded:
+            print('Failed %s. Count exceeded.'%p.prob)
+            continue
 
         # test random
         print('Testing random search...')
