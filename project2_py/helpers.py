@@ -116,7 +116,7 @@ class Simple1(ConstrainedOptimizationProblem):
         return np.random.rand(self._xdim) * 2.0
 
     def _wrapped_f(self, x):
-        return -x[0] * x[1]
+        return -x[0] * x[1]  + 2.0 / (3.0 * np.sqrt(3.0))
 
     def _wrapped_g(self, x):
         return np.array([
@@ -175,7 +175,7 @@ class Simple3(ConstrainedOptimizationProblem):
         return np.random.rand(3) * (b-a) + a
 
     def _wrapped_f(self, x):
-        return x[0] - 2*x[1] + x[2]
+        return x[0] - 2*x[1] + x[2] + np.sqrt(6.0)
 
     def _wrapped_g(self, x):
         return np.array([1., -2., 1.])

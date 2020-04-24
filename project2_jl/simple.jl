@@ -1,7 +1,7 @@
 ########### "Simple" Problem Definitons ###########
 
 @counted function simple1(x::Vector)
-    return -x[1] * x[2]
+    return -x[1] * x[2] + 2.0 / (3.0 * sqrt(3.0))
 end
 
 @counted function simple1_gradient(x::Vector)
@@ -38,7 +38,7 @@ function simple2_init()
 end
 
 @counted function simple3(x::Vector)
-    return x[1] - 2*x[2] + x[3]
+    return x[1] - 2*x[2] + x[3] + sqrt(6.0)
 end
 
 @counted function simple3_gradient(x::Vector)
