@@ -218,9 +218,9 @@ def test_optimize(optimize):
 
         numfeas = np.sum(solution_feasible)
         if numfeas >= 0.95*500:
-            print('Pass: optimize returns a feasible solution on %d/%d random seeds..' % (numfeas,500))
+            print('Pass: optimize returns a feasible solution on %d/%d random seeds.' % (numfeas,500))
         else:
-            print('Fail: optimize returns a feasible solution on %d/%d pct of the time.' % (numfeas,500))
+            print('Fail: optimize returns a feasible solution on %d/%d random seeds.' % (numfeas,500))
 
     return
     

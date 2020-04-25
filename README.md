@@ -32,14 +32,14 @@ First, pick either Julia1.2+ or Python3.6+ as a programming language. Depending 
 
 ### Complete the required code
 Second, if you chose Julia, go to `project2_jl/project2.jl` and complete the function `optimize`. If you chose Python, go to `project2_py/project2.py` and complete the function `optimize`.
-To get full credit on a given problem, your implementation must outperform random search on 55% of random seeds.
+To get full credit on a given problem, your implementation must return a feasible solution on at least 95% of random seeds.
 
 ### Test your completed code
 Third, if you chose Julia test your completed code by running:
 `julia localtest.jl`
 If you chose Python, test your completed code by running:
 `python3 localtest.py`
-You should see `Pass: optimize does better than random search on [problem].` for all the simple problems.
+You should see `Pass: optimize returns a feasible solution on X/500 random seeds.` for all the simple problems.
 
 ### Prepare your README.pdf
 In addition to the programming aspect, you are also required to submit (also on gradescope) a PDF writeup, worth 50% of the assignment. It should contain the following information:
