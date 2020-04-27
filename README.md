@@ -57,7 +57,7 @@ For each of the five problems given, describe:
 #### Comparison of algorithms
 You must compare the performance of at least two algorithms by doing the following.
 - For `simple1` and `simple2`, plot the feasible region (where `c(x) <= 0`) on top of a contour plot of `f(x)`. Show the path taken by the algorithm for at least three initial conditions on this plot. Make a separate plot for at least two distinct algorithms (four plots). For both problems the axis limits should be (-3, 3).
-- For only `simple2`, and for at least two distinct algorithms, plot the objective function versus iteration, and maximum constraint violation versus iteration, for at least three initial conditions. Plot the curves for different intial conditions on the same plot, but make a serparate plot for the objective and constraint violation, and for each of the two algorithms compared (four plots). 
+- For only `simple2`, and for at least two distinct algorithms, plot the objective function versus iteration, and maximum constraint violation versus iteration, for at least three initial conditions. Plot the curves for different initial conditions on the same plot, but make a separate plot for the objective and constraint violation, and for each of the two algorithms compared (four plots). 
 
 Submit your README.pdf on `Gradescope/AA222/Project 2 Writeup`.
 
