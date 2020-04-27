@@ -18,8 +18,8 @@
 ## Rules
 In this project, you will be implementing a function `optimize` that minimizes a function with a limited number of evaluations.
 - We provide you a function `f(x)`, it's gradient `g(x)`, a function evaluating the constraints `c(x)`, and a number of allowed evaluations `n`.
-- Each call to `f` counts as one evaluation, each call to `g` counts as two evaluations, and each call to `c` counts as one evaluation.
-- The only external libraries allowed for your implementation of `optimize` are `numpy` in Python and `Statistics` and `Distributions` in Julia.
+- Each call to `f` or `c` counts as one evaluation while each call to `g` counts as two evaluations. Note that `f` returns a scalar, while `g` and `c` both return vectors.
+- The only external libraries allowed for your implementation of optimize are numpy and scipy.stats in Python and Statistics and Distributions in Julia. In addition to those, you may use any of the standard libraries of either language.
 - You can use different optimization strategies for each problem, since we pass you a string `prob` in the call to `optimize`.
 - You can base your algorithm on those found in the book or online, but you must give credit.
 - Although you may discuss your algorithm with others, you must not share code.
@@ -73,13 +73,13 @@ We are not providing the Hessian function for you to use. But feel free to estim
 Unlimited!
 
 #### Can we exceed the max number of evaluations when making the plots for the README?
-Yes! In python, you can get around the assertion error by calling the `problem.nolimit()` method to allow infinite evaluations.
+Yes! In python, you can get around the assertion error by calling the `problem.nolimit()` method to allow infinite evaluations. In Julia, you can pass in `n = Inf` to optimize.
 
 #### How long does the autograder take to grade?
 It shouldn't take more than 5 minutes to grade. If your submission times-out during grading, please contact us on Piazza.
 
 #### How are leaderboard scores computed?
-All of the problems are designed to have an optimal value of 0. The closer you are to 0, the closer you are to winning! The total score is the sum of all 5 problems (all of the problems are weighted the same).
+All of the problems are designed to have an optimal value of 0. The closer you are to 0, the closer you are to winning! The total score is the sum of all 5 problems (all of the problems are weighted the same). Constraint violations will still yield finite scores, but subject to huge penalties.
 
 #### Can I write code outside of the `optimize` function?
 Yes, you can organize your code however you want as long as, at the end of the day, optimize works as described. Note that if you decide to create additional files, please make sure to import/include (python/julia respectively) them in your project2 file, or else they won’t be available to the autograder.
@@ -108,6 +108,7 @@ def optimize(f, g, c, x0, n, count, prob):
         # ... do some optimization
     return x_best
 ```
+* In Python, do not use the AssertionError as an indication that you have reached the count limit. On Gradescope we do not throw that error.
 
 #### My README plots require an optimization path, but optimize only returns the optimum itself!
 `optimize` is geared towards the autograder's evaluation of your method, so it only returns the final point. However, if you're coding with the README in mind (which is a good idea!), you may want to design your code in a way that is conducive to both requirements by writing methods thats collect the optimization history. See the following julia example:
