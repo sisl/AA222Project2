@@ -27,34 +27,39 @@ In this project, you will be implementing a function `optimize` that minimizes a
 
 ## Deliverables
 
-### Choose a programming language
-First, pick either Julia1.2+ or Python3.6+ as a programming language. Depending on your choice, go to `language.txt` and change `notalanguage` to either `julia` or `python`.
+The core deliverables for this project consist of submitting an optimization algorithm to an autograder, and comparing different optimization algorithms in a write-up. 
 
-### Complete the required code
-Second, if you chose Julia, go to `project2_jl/project2.jl` and complete the function `optimize`. If you chose Python, go to `project2_py/project2.py` and complete the function `optimize`.
-To get full credit on a given problem, your implementation must return a feasible solution on at least 95% of random seeds.
+### Pass the autograder
+The autograder will call the function `optimize` (located at `project2_jl/project2.jl` or `project2_py/project2.py` depending on the language chosen. In order to pass on a given problem, `optimize` must return a feasible point for at least 475 out of 500 different initial guesses (`x0`). The autograder does not require that you use a different algorithm for each problem, but you are free to do so. 
 
-### Test your completed code
-Third, if you chose Julia test your completed code by running:
+To locally test if your implementation is working, you should run one of the following commands, depending on your choice of language. 
 `julia localtest.jl`
-If you chose Python, test your completed code by running:
 `python3 localtest.py`
-You should see `Pass: optimize returns a feasible solution on X/500 random seeds.` for all the simple problems.
+You should see `Pass: optimize returns a feasible solution on X/500 random seeds.` for all the simple problems. 
+
+To submit your code to the autograder, create the zip file for your submission by running (Unix)
+`bash ./make_submission.sh`
+or (CommandPrompt):
+`bash ./make_submission.bat`
+
+Then, submit the created zip file `project2.zip` on `Gradescope/AA222/Project 2`.
 
 ### Prepare your README.pdf
-In addition to the programming aspect, you are also required to submit (also on gradescope) a PDF writeup, worth 50% of the assignment. It should contain the following information:
-- A description of the method(s) you chose.
-- Plots showing the path taken by your algorithm for simple problems 1 and 2. Show the path taken from three different starting points of your choice, as well as the objective and constraints contours.
-- Convergence plots for the three simple functions described above (from any initial point of your choice).
+In the README, you will be required to describe the algorithms called by `optimize`, as well as compare the performance of at least two distinct algorithms on the simple problems. 
 
-### Create the code submission
-Fourth, create the zip file for your submission by running
-`bash ./make_submission.sh`
+#### Description of algorithms
+For each of the five problems given, describe:
+- The algorithm you chose to solve it.
+- How you decided which hyperparameters to choose.
+- Why you think it works.
+- At least one pro and one con to the chosen algorithm.
 
-### Submit on Gradescope
-- Submit the created zip file `project2.zip` on `Gradescope/AA222/Project 2`
-- Submit your README.pdf on `Gradescope/AA222/Project 2 Writeup`
+#### Comparison of algorithms
+You must compare the performance of at least two algorithms by doing the following.
+- For `simple1` and `simple2`, plot the feasible region (where `c(x) <= 0`) on top of a contour plot of `f(x)`. Show the path taken by the algorithm for at least three initial conditions on this plot. Make a separate plot for at least two distinct algorithms (four plots). For both problems the axis limits should be (-3, 3).
+- For only `simple2`, and for at least two distinct algorithms, plot the objective function versus iteration, and maximum constraint violation versus iteration, for at least three initial conditions. Plot the curves for different intial conditions on the same plot, but make a serparate plot for the objective and constraint violation, and for each of the two algorithms compared (four plots). 
 
+Submit your README.pdf on `Gradescope/AA222/Project 2 Writeup`.
 
 ## FAQ
 
