@@ -48,6 +48,8 @@ class OptimizationProblem:
         Returns:
             f (float): evaluation
         '''
+        assert x.ndim == 1
+
         self._ctr += 1
 
         return self._wrapped_f(x)
@@ -62,6 +64,8 @@ class OptimizationProblem:
         Returns:
             jac (np.array): jacobian of f wrt x
         '''
+        assert x.ndim == 1
+
         self._ctr += 2
 
         return self._wrapped_g(x)
@@ -95,6 +99,8 @@ class ConstrainedOptimizationProblem(OptimizationProblem):
         Returns:
             c (np.array): (cdim,) evaluation of constraints
         '''
+        assert x.ndim == 1
+        
         self._ctr += 1
 
         return self._wrapped_c(x)
