@@ -56,7 +56,7 @@ for nm in probnames
             all(<=(0), PROBS[nm].c(x))
         end
 
-        # ALL optima must be feasible!
+        # 95% of optima must be feasible!
         pass = sum(feasible_optima) >= (0.95*K)
 
         if pass
