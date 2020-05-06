@@ -52,7 +52,7 @@ for nm in probnames
         scores, n_evals, optima = main(nm, K, optimize)
 
         if maximum(n_evals) > PROBS[nm].n
-            @warn "number of exaluations exceeded. Got $(maximum(n_evals)). This warning will get be an on the autograder for $nm"
+            @warn "number of exaluations exceeded. Got $(maximum(n_evals)) on $nm."
         end
 
         # Check which optima are feasible
