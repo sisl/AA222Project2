@@ -42,7 +42,7 @@ To submit your code to the autograder, create the zip file for your submission b
 or (CommandPrompt):
 `bash ./make_submission.bat`
 
-Then, submit the created zip file `project2.zip` on `Gradescope/AA222/Project 2`.
+Then, submit the created zip file `project2.zip` on `Gradescope/AA222/Project2`.
 
 ### Prepare your README.pdf
 In the README, you will be required to describe the algorithms called by `optimize`, as well as compare the performance of at least two distinct algorithms on the simple problems. 
@@ -59,7 +59,7 @@ You must compare the performance of at least two algorithms by doing the followi
 - For `simple1` and `simple2`, plot the feasible region (where `c(x) <= 0`) on top of a contour plot of `f(x)`. Show the path taken by the algorithm for at least three initial conditions on this plot. Make a separate plot for at least two distinct algorithms (four plots). For both problems the axis limits should be (-3, 3).
 - For only `simple2`, and for at least two distinct algorithms, plot the objective function versus iteration, and maximum constraint violation versus iteration, for at least three initial conditions. Plot the curves for different initial conditions on the same plot, but make a separate plot for the objective and constraint violation, and for each of the two algorithms compared (four plots). 
 
-Submit your README.pdf on `Gradescope/AA222/Project 2 Writeup`.
+Submit your README.pdf on `Gradescope/AA222/Project2 Writeup`.
 
 ## FAQ
 
@@ -76,10 +76,10 @@ Unlimited!
 Yes! In python, you can get around the assertion error by calling the `problem.nolimit()` method to allow infinite evaluations. In Julia, you can pass in `n = Inf` to optimize.
 
 #### How long does the autograder take to grade?
-It shouldn't take more than 5 minutes to grade. If your submission times-out during grading, please contact us on Piazza.
+It shouldn't take more than 10 minutes to grade. If your submission times-out during grading, please contact us on Piazza.
 
 #### How are leaderboard scores computed?
-All of the problems are designed to have an optimal value of 0. The closer you are to 0, the closer you are to winning! The total score is the sum of all 5 problems (all of the problems are weighted the same). Constraint violations will still yield finite scores, but subject to huge penalties.
+All of the problems are designed to have an optimal value near 0. The closer you are to 0, the closer you are to winning! The total score is the sum of all 5 problems (all of the problems are weighted the same). Constraint violations will still yield finite scores, but subject to huge penalties.
 
 #### Can I write code outside of the `optimize` function?
 Yes, you can organize your code however you want as long as, at the end of the day, optimize works as described. Note that if you decide to create additional files, please make sure to import/include (python/julia respectively) them in your project2 file, or else they won’t be available to the autograder.
