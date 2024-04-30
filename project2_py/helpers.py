@@ -191,21 +191,28 @@ class Simple3(ConstrainedOptimizationProblem):
 
 
 
-def test_optimize(optimize):
+def test_optimize(optimize, tests_to_run, n_trials):
     '''
     Tests optimize to ensure it passes
     Args:
         optimize (function): function optimizing a given problem
     '''
+    tests = [Simple1, Simple2, Simple3]
+    if tests_to_run == "simple1":
+        tests = [Simple1]
+    elif tests_to_run == "simple2":
+        tests = [Simple2]
+    elif tests_to_run == "simple3":
+        tests = [Simple3]
 
-    for test in [Simple1, Simple2, Simple3]:
+    for test in tests:
 
         p = test()
         print('Testing on %s...' % p.prob)
 
         solution_feasible = []
         any_count_exceeded = False
-        for seed in tqdm(range(500)):
+        for seed in tqdm(range(n_trials)):
             p = test()
             np.random.seed(seed)
             x0 = p.x0()
