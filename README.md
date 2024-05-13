@@ -11,7 +11,7 @@
 - `localtest.py` runs tests on `project2_py`
 - `localtest.jl` runs tests on `project2_jl`
 - `make_submission.sh` is a shell script which will create a zip file for submission to gradescope (Unix).
-- `make_submission_gitbash.sh` is a shell script which will create a zip file for submission to gradescope (Windows GitBash).
+- `make_submission_gitbash.sh` is a shell script which will create a zip file for submission to gradescope (Windows GitBash + 7-Zip).
 - `make_submission.bat` is a batch script to create a zip file for submission to gradescope (Windows Command Prompt)
 
 
@@ -37,10 +37,10 @@ To locally test if your implementation is working, you should run one of the fol
 `python3 localtest.py`
 You should see `Pass: optimize returns a feasible solution on X/500 random seeds.` for all the simple problems. 
 
-To submit your code to the autograder, create the zip file for your submission by running (Unix)
-`bash ./make_submission.sh`
-or (CommandPrompt):
-`bash ./make_submission.bat`
+To submit your code to the autograder, create the zip file for your submission by running
+- On Unix: `bash ./make_submission.sh`
+- On Windows (with 7-Zip installed): `bash ./make_submission_gitbash.sh`
+- On Windows (without 7-Zip installed): `make_submission.bat`
 
 Then, submit the created zip file `project2.zip` on `Gradescope/AA222/Project2`.
 
