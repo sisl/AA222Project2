@@ -1,5 +1,5 @@
 #=
-        project1.jl -- This is where the magic happens!
+        project2.jl -- This is where the magic happens!
 
     All of your code must either live in this file, or be `include`d here.
 =#
